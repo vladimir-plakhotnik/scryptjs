@@ -2,6 +2,9 @@
 
 A lightweight library for password hashing using scrypt in Node.js.
 
+This library offers a reliable, modern, and efficient alternative to bcrypt and other libraries for password generation and storage on the server side.
+
+
 ## Motivation
 
 Although Node.js provides built-in support for the [scrypt](https://nodejs.org/api/crypto.html#cryptoscryptpassword-salt-keylen-options-callback) algorithm, using it often requires repetitive boilerplate code. For example, each time you need to:
@@ -21,13 +24,13 @@ With this package, you can securely hash and verify passwords without worrying a
 ## Installation
 
 ```bash
-npm install scryptjs
+npm i @vladimir-plakhotnik/scryptjs
 ```
 
 ## Usage
 
 ```typescript
-import scryptjs from "scryptjs";
+import scryptjs from "@vladimir-plakhotnik/scryptjs";
 
 const scrypt = scryptjs();
 const hashedPassword = await scrypt.hash("password");
@@ -81,7 +84,7 @@ This JSON object is then stringified into a single string for storage or further
 
 ## Examples
 
-The project includes examples that demonstrate how to use the library. These examples are located in the [`example`](https://github.com/vladimir-plakhotnik/scryptjs/tree/main/example) folder of the project.
+The project includes examples that demonstrate how to use the library. These examples are located in the [example](https://github.com/vladimir-plakhotnik/scryptjs/tree/main/example) folder of the project.
 
 ### How to Run the Examples
 
