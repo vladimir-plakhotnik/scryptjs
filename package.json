@@ -1,6 +1,6 @@
 {
   "name": "@vladimir-plakhotnik/scryptjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight library for password hashing using scrypt in Node.js",
   "keywords": [
     "scrypt",
