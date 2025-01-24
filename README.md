@@ -4,7 +4,6 @@ A lightweight library for password hashing using scrypt in Node.js.
 
 This library offers a reliable, modern, and efficient alternative to bcrypt and other libraries for password generation and storage on the server side.
 
-
 ## Motivation
 
 Although Node.js provides built-in support for the [scrypt](https://nodejs.org/api/crypto.html#cryptoscryptpassword-salt-keylen-options-callback) algorithm, using it often requires repetitive boilerplate code. For example, each time you need to:
