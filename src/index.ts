@@ -1,5 +1,8 @@
 import { scrypt, randomBytes, timingSafeEqual } from "crypto";
 
+// The scryptjs version
+const VERSION = "v1";
+
 /** The scryptjs options */
 type Options = {
   /**
@@ -104,7 +107,7 @@ function scryptjs(options?: ScryptJSOptions) {
     });
 
     return JSON.stringify({
-      version: "v1",
+      version: VERSION,
       hash: buffer.toString("hex"),
       salt,
     });
@@ -122,7 +125,7 @@ function scryptjs(options?: ScryptJSOptions) {
   ): Promise<boolean> {
     const { version, hash, salt } = JSON.parse(storedPassword);
 
-    if (version !== "v1") {
+    if (version !== VERSION) {
       throw new Error("Unsupported password version");
     }
 
