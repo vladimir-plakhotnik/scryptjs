@@ -37,6 +37,12 @@ const isMatch = await scrypt.compare("password", hashedPassword);
 console.log(isMatch); // true
 ```
 
+You can also provide a custom salt if needed. If not provided, a random salt will be generated:
+
+```typescript
+const hashedPassword = await scrypt.hash("password", "custom salt");
+```
+
 ## Options
 
 The scryptjs options allows you to customize the behavior of the scryptjs library. All fields are optional, and any omitted fields will use the default values.

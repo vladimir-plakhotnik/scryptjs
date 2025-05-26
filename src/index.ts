@@ -80,7 +80,7 @@ function scryptjs(options?: ScryptJSOptions) {
     salt: string,
     keylen: number,
     options: Record<string, number>,
-  ): Promise<Buffer> {
+  ): Promise<Buffer<ArrayBufferLike>> {
     return new Promise((resolve, reject) => {
       scrypt(password, salt, keylen, options, (err, derivedKey) => {
         if (err) {
@@ -95,11 +95,14 @@ function scryptjs(options?: ScryptJSOptions) {
   /**
    * Hash a password
    * @param password - The password to hash
+   * @param salt - The salt to use (optional). If not provided, a random salt will be generated
    * @returns The hashed password
    */
-  async function hash(password: string): Promise<string> {
+  async function hash(password: string, salt?: string): Promise<string> {
     const { N, r, p, keylen, saltSize } = SCRYPT_OPTIONS;
-    const salt = randomBytes(saltSize).toString("hex");
+    if (!salt) {
+      salt = randomBytes(saltSize).toString("hex");
+    }
     const buffer = await scryptAsync(password, salt, keylen, {
       N,
       r,
